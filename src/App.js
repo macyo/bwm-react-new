@@ -6,6 +6,7 @@ import Register from './pages/login';
 
 
 function App() {
+  
 
   const renderPage = () => {
     const { pathname } = window.location
