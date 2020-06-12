@@ -1,26 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Header from './components/Shared/Header'
+import RentalHome from './pages/RentalHome'
+import Login from './pages/login'
+import Register from './pages/login';
+
 
 function App() {
+
+  const renderPage = () => {
+    const { pathname } = window.location
+    debugger
+    switch(pathname) {
+      case '/':
+        return <RentalHome />
+      case '/login':
+        return <Login />
+      case '/register':
+        return <Register />
+      default:
+        return <RentalHome /> 
+      }
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+    <Header />
+    { renderPage() }
     </div>
-  );
+
+  )
 }
 
 export default App;
